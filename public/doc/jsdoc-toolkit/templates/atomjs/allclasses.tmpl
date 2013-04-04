@@ -1,0 +1,16 @@
+<div align="center"><a href="/">Guide</a> | API Reference</div>
+<hr />
+<h2>Classes</h2>
+<ul class="classList">
+	<for each="thisClass" in="data">
+	<li>{!
+		if (thisClass.alias == "_global_") {
+
+		}
+		else {
+			output += new Link().toClass(thisClass.alias);
+		}
+	!}</li>
+	</for>
+</ul>
+<hr />

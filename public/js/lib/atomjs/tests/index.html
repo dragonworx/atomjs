@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>atomjs &middot; test suit</title>
+    <link rel="stylesheet" href="../../../../css/qunit-1.11.0.css">
+    <script src="../../require.js"></script>
+</head>
+<body>
+<div id="qunit"></div>
+<div id="qunit-fixture"></div>
+<script src="../../qunit-1.11.0.js"></script>
+<script>
+    (function() {
+        "use strict";
+
+        QUnit.config.autostart = false;
+
+        requirejs.config({
+            baseUrl: '',
+
+            paths: {
+                jquery: '../../jquery',
+                history: '../../history',
+                json: '../../json2',
+                normalize: '../../require/normalize',
+                text: '../../require/text',
+                css: '../../require/css',
+                atomjs: '../../atomjs'
+            },
+
+            shim: {
+                jquery: {
+                    exports: 'jQuery'
+                },
+                history: {
+                    exports: 'History'
+                }
+            },
+
+            deps: [
+                'json',
+                'atomjs/lang',
+                'atomjs/url',
+                'atomjs/dom'
+            ]
+        });
+
+        require([
+            'lang',
+            'url',
+            'dom'
+        ], function() {
+            QUnit.start();
+        });
+    })();
+</script>
+</body>
+</html>

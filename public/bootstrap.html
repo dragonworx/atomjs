@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>atomjs &middot; example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+        body {
+            padding-top: 20px;
+            padding-bottom: 40px;
+        }
+
+            /* Custom container */
+        .container-narrow {
+            margin: 0 auto;
+            max-width: 700px;
+        }
+        .container-narrow > hr {
+            margin: 30px 0;
+        }
+
+            /* Main marketing message and sign up button */
+        .jumbotron {
+            margin: 60px 0;
+            text-align: center;
+        }
+        .jumbotron h1 {
+            font-size: 72px;
+            line-height: 1;
+        }
+        .jumbotron .btn {
+            font-size: 21px;
+            padding: 14px 24px;
+        }
+
+            /* Supporting marketing content */
+        .marketing {
+            margin: 60px 0;
+        }
+        .marketing p + h4 {
+            margin-top: 28px;
+        }
+        [atom-load=false] {
+            display: none;
+        }
+    </style>
+    <!-- notice href is relative to bootstrap file -->
+    <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+
+    <!-- atom-bootstrap attribute let's client test for 404 when server returns bootstrap. notice data-main and src is relative to bootstrap file -->
+    <script atom-bootstrap="true" data-main="js/lib/atomjs/bootstrap.js" src="js/lib/require.js"></script>
+</head>
+
+<body>
+<!-- preload loadspinner image. src relative to bootstrap file -->
+<img src="img/ajax-loader.gif" style="display:none"/>
+
+<!-- main container with root route.
+ also has a load spinner controller to catch load events and show an image.
+  atom-set-hide overrides default control behavior to hide element when loading, so loader image can be seen instantly. -->
+<div class="container-narrow" atom-route="/" id="main" atom-controller="com.atom.ui.loadspinner" atom-set-src="img/ajax-loader.gif" atom-set-hide="false">
+        <div class="masthead">
+            <ul class="nav nav-pills pull-right">
+                <!-- place an atom-route-on regular expression to catch route changes and apply atom-class to any element. -->
+                <li atom-route-on="\/public" atom-class="active"><a href="" atom-path="/public">Home</a></li>
+                <li atom-route-on="\/about" atom-class="active"><a href="about" atom-path="true">About</a></li>
+                <li atom-route-on="\/contact" atom-class="active"><a href="contact" atom-path="true">Contact</a></li>
+                <li atom-route-on="\/admin" atom-class="active"><a href="admin" atom-path="true"><em>Admin</em></a></li>
+            </ul>
+            <h3 class="muted">atomjs</h3>
+        </div>
+
+        <hr>
+
+    <!-- public route, uses the atom-route-default attribute to cause a sub-navigation when navigating to root route -->
+    <div atom-route="public" atom-route-default="true" atom-load="false">
+        <div class="jumbotron">
+            <h1>Welcome to atomjs!</h1>
+            <p class="lead">This is an example site built with atom. It demonstrates public and private content plus navigation and error handling.</p>
+            <p class="label label-info">You'll need to configure your server to always return the bootstrap.html page for every request. This enables front routing on the client.</p>
+            <p>Try clicking on Admin, you'll be directed to login. To login, just click the Sign In button <em>(no credentials needed)</em>.</p>
+            <p>Try entering <a href="/foobar">a url which doesn't exist</a>, you'll see the 404 template.</p>
+            <a class="btn btn-large btn-success" href="login" atom-path="true">Sign In</a>
+        </div>
+    </div>
+
+    <!-- main container templates and controllers -->
+    <div class="row-fluid marketing" atom-template="com.example.about" atom-route="about" atom-load="false"></div>
+    <div class="row-fluid marketing" atom-template="com.example.contact" atom-route="contact" atom-load="false"></div>
+    <div class="row-fluid" atom-template-controller="com.example.login" atom-route="login" atom-load="false"></div>
+    <div class="row-fluid" atom-template-controller="com.example.admin" atom-route="admin" atom-load="false"></div>
+
+    <div id="404"></div>
+
+    <hr>
+
+    <div class="footer">
+        <p>&copy; atomjs.org 2013</p>
+    </div>
+
+</div>
+
+</body>
+</html>

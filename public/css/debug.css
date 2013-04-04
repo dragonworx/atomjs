@@ -1,0 +1,69 @@
+[atom-debug=true] [atom-template]:hover, [atom-debug=true] [atom-controller]:hover, [atom-debug=true] [atom-template][atom-controller]:hover {
+    -webkit-box-shadow: 1px 1px 10px -2px #000; /* Android 2.3+, iOS 4.0.2-4.2, Safari 3-4 */
+    box-shadow: 1px 1px 10px -2px #000; /* Chrome 6+, Firefox 4+, IE 9+, iOS 5+, Opera 10.50+ */
+    border-style: dashed;
+    border-width: 2px;
+}
+
+[atom-debug=true] [atom-template]:hover:before, [atom-debug=true] [atom-controller]:hover:before, [atom-debug=true] [atom-template][atom-controller]:hover:before {
+    font-weight: bold;
+}
+
+[atom-debug=true] [atom-template]:before, [atom-debug=true] [atom-controller]:before, [atom-debug=true] [atom-template][atom-controller]:before {
+    position: relative;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    font-size: 11px;
+    font-weight: normal;
+    color: #fff;
+    top: 0;
+    padding: 5px;
+    cursor: default;
+    white-space: nowrap;
+    -webkit-box-shadow: 1px 1px 10px -2px #000; /* Android 2.3+, iOS 4.0.2-4.2, Safari 3-4 */
+    box-shadow: 1px 1px 10px -2px #000; /* Chrome 6+, Firefox 4+, IE 9+, iOS 5+, Opera 10.50+ */
+    -webkit-transition: all 0.3s ease-out;  /* Chrome 1-25, Safari 3.2+ */
+    -moz-transition: all 0.3s ease-out;  /* Firefox 4-15 */
+    -o-transition: all 0.3s ease-out;  /* Opera 10.50–12.00 */
+    transition: all 0.3s ease-out;  /* Chrome 26, Firefox 16+, IE 10+, Opera 12.50+ */
+}
+
+[atom-debug=true] [atom-template], [atom-debug=true] [atom-controller], [atom-debug=true] [atom-template][atom-controller] {
+    -webkit-transition: all 0.3s ease-out;  /* Chrome 1-25, Safari 3.2+ */
+    -moz-transition: all 0.3s ease-out;  /* Firefox 4-15 */
+    -o-transition: all 0.3s ease-out;  /* Opera 10.50–12.00 */
+    transition: all 0.3s ease-out;  /* Chrome 26, Firefox 16+, IE 10+, Opera 12.50+ */
+}
+
+[atom-debug=true] [atom-template] {
+    border: 1px dotted blue;
+}
+
+[atom-debug=true] [atom-template]:before {
+    content: attr(atom-path) " :template(" attr(atom-template) ")";
+    background-color: blue;
+    border-top: 1px solid blue;
+}
+
+[atom-debug=true] [atom-controller] {
+    border: 1px dotted red;
+}
+
+[atom-debug=true] [atom-controller]:before {
+    content: attr(atom-path) " :controller(" attr(atom-controller) ")";
+    background-color: red;
+    background-repeat: no-repeat;
+    border-top: 1px solid red;
+}
+
+[atom-debug=true] [atom-template][atom-controller] {
+    border: 1px dotted purple;
+}
+
+[atom-debug=true] [atom-template][atom-controller]:before {
+    content: attr(atom-path) " :template(" attr(atom-template) "):controller(" attr(atom-controller) ")";
+    background-color: purple;
+    border-top: 1px solid purple;
+}

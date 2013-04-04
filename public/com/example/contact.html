@@ -1,0 +1,11 @@
+<ul class="nav nav-tabs" id="myTab">
+    <li atom-route-on="\/profile" atom-class="active"><a href="contact" atom-path="contact/profile">Profile</a></li>
+    <li atom-route-on="\/messages" atom-class="active"><a href="contact" atom-path="contact/messages">Messages</a></li>
+    <li atom-route-on="\/settings" atom-class="active"><a href="contact" atom-path="contact/settings">Settings</a></li>
+</ul>
+
+<div class="tab-content">
+    <div atom-route="profile" atom-route-default="true" atom-template="com.example.contact.profile" class="tab-pane"></div>
+    <div atom-route="messages" atom-route-default="true" atom-template="com.example.contact.messages" class="tab-pane"></div>
+    <div atom-route="settings" atom-route-default="true" atom-template="com.example.contact.settings" class="tab-pane"></div>
+</div>

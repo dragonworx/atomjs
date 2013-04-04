@@ -1,0 +1,12 @@
+{
+	"name": "Simple_Server",
+	"description": "Simple static server which can be configured to run as subsite or single page response bootstrap mode",
+	"version": "1.1.0",
+	"author": {
+		"name": "Ali Chamas",
+		"email": "musicartscience@gmail.com"
+	},
+	"dependencies": {
+		"express": "*"
+	}
+}

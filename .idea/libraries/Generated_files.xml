@@ -1,0 +1,18 @@
+<component name="libraryTable">
+  <library name="Generated files" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/public/js/lib/atomjs/atom-3.0.0-min.js" />
+        <item url="file://$PROJECT_DIR$/public/js/lib/atom-3.0.0-min.js" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/public/js/lib/atomjs/atom.min.js" />
+      <root url="file://$PROJECT_DIR$/public/js/lib/atomjs/public/js/lib/atomjs/atom.js/atom-min.js" />
+      <root url="file://$PROJECT_DIR$/public/js/lib/atomjs/public/js/lib/atomjs/atom.js/atom-min.js" />
+      <root url="file://$PROJECT_DIR$/public/js/lib/atomjs/atom-3.0.0-min.js" />
+      <root url="file://$PROJECT_DIR$/public/sub/site/js/lib/atom-3.0.0-min.js" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>

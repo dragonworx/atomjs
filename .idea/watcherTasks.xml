@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectTasksOptions">
+    <TaskOptions isEnabled="false">
+      <option name="arguments" value="--compilation_level SIMPLE_OPTIMIZATIONS --js lang.js url.js jquery.js atom.js" />
+      <option name="checkSyntaxErrors" value="false" />
+      <option name="description" value="Compiles .js files" />
+      <option name="exitCodeBehavior" value="ERROR" />
+      <option name="fileExtension" value="js" />
+      <option name="immediateSync" value="true" />
+      <option name="name" value="Closure Compiler" />
+      <option name="output" value="$PROJECT_DIR$/public/js/lib/atom-3.0.0-min.js" />
+      <option name="outputFilters">
+        <array />
+      </option>
+      <option name="outputFromStdout" value="true" />
+      <option name="passParentEnvs" value="true" />
+      <option name="program" value="$USER_HOME$/Downloads/compiler-latest/compiler.jar" />
+      <option name="scopeName" value="Project Files" />
+      <option name="trackOnlyRoot" value="true" />
+      <option name="workingDir" value="$PROJECT_DIR$/public/js/lib/atomjs" />
+      <envs />
+    </TaskOptions>
+  </component>
+</project>
+

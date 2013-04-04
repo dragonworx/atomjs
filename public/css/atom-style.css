@@ -1,0 +1,28 @@
+[atom-loading=true], [atom-load=false], [atom-fragment] {
+    display: none;
+}
+
+/*[atom-load="false"], { display: none; }*/
+
+/*[atom-template], [atom-controller], [atom-style], [atom-template-style], [atom-controller-style], [atom-template-controller], [atom-template-controller-style] {*/
+    /*-webkit-transition: opacity 0.5s ease-out;  *//* Chrome 1-25, Safari 3.2+ */
+    /*-moz-transition: opacity 0.5s ease-out;  *//* Firefox 4-15 */
+    /*-o-transition: opacity 0.5s ease-out;  *//* Opera 10.50–12.00 */
+    /*transition: opacity 0.5s ease-out;  *//* Chrome 26, Firefox 16+, IE 10+, Opera 12.50+ */
+/*}*/
+
+/*[atom-template] { zoom: 1; filter: alpha(opacity=0); opacity: 0; }*/
+/*[atom-controller] { zoom: 1; filter: alpha(opacity=0); opacity: 0; }*/
+/*[atom-style] { zoom: 1; filter: alpha(opacity=0); opacity: 0; }*/
+/*[atom-template-style] { zoom: 1; filter: alpha(opacity=0); opacity: 0; }*/
+/*[atom-controller-style] { zoom: 1; filter: alpha(opacity=0); opacity: 0; }*/
+/*[atom-template-controller] { zoom: 1; filter: alpha(opacity=0); opacity: 0; }*/
+/*[atom-template-controller-style] { zoom: 1; filter: alpha(opacity=0); opacity: 0; }*/
+
+/*[atom-template][atom-init="true"] { zoom: 1; filter: alpha(opacity=100); opacity: 1; }*/
+/*[atom-controller][atom-init="true"] { zoom: 1; filter: alpha(opacity=100); opacity: 1; }*/
+/*[atom-style][atom-init="true"] { zoom: 1; filter: alpha(opacity=100); opacity: 1; }*/
+/*[atom-template-style][atom-init="true"] { zoom: 1; filter: alpha(opacity=100); opacity: 1; }*/
+/*[atom-controller-style][atom-init="true"] { zoom: 1; filter: alpha(opacity=100); opacity: 1; }*/
+/*[atom-template-controller][atom-init="true"] { zoom: 1; filter: alpha(opacity=100); opacity: 1; }*/
+/*[atom-template-controller-style][atom-init="true"] { zoom: 1; filter: alpha(opacity=100); opacity: 1; }*/
