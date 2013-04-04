@@ -27,11 +27,14 @@ define(['atomjs/lang', 'atomjs/dom', 'atomjs/log', 'atomjs/control', 'atomjs/url
 
 			log.write('start', 'atom.loader.init');
 
+			// give Control class access to private loader functionality
+			Control.loader(loader);
+
 			// create default template controller class and bind events
-			Control._loader(loader);
 			TemplateController = new Control();
 			TemplateController.__bind();
 
+			// load document body by default
 			loader.load(dom.body, function (err, results) {
 				log.write('complete', 'atom.loader.init');
 				init_callback(null, results);
@@ -137,8 +140,8 @@ define(['atomjs/lang', 'atomjs/dom', 'atomjs/log', 'atomjs/control', 'atomjs/url
 			);
 		},
 
-		isControllerCached: function (id) {
-			return lang.isDefined(loader.cache.controllers[id]);
+		isControllerCached: function (className) {
+			return lang.isDefined(loader.cache.controllers[className]);
 		},
 
 		isTemplateCached: function (id) {
@@ -364,7 +367,7 @@ define(['atomjs/lang', 'atomjs/dom', 'atomjs/log', 'atomjs/control', 'atomjs/url
 			info.id = element.attr('id');
 			info.style = element.attr('style');
 			info.element = element;
-			info.isLoaded = info.isController ? loader.isControllerCached(info.controllers[info.controllers.length - 1]) : lang.bool(element.attr('atom-init')) === true;
+			info.isLoaded = info.isController ? loader.isControllerCached(info.className) : lang.bool(element.attr('atom-init')) === true;
 
 			return info;
 		},
@@ -374,13 +377,11 @@ define(['atomjs/lang', 'atomjs/dom', 'atomjs/log', 'atomjs/control', 'atomjs/url
 
 			if (element) {
 				loader.fragments[fragmentId] = dom.outerHTML(element).replace(/>\s+</g, '><');
-				log.write('fragment["' + fragmentId + '"] = ' + loader.fragments[fragmentId]);
+				log.write('fragment', fragmentId);
 				return loader.fragments[fragmentId];
 			}
 			if (!fragment) {
 				throw new Error('fragment[' + fragmentId + '] NOT_FOUND');
-			} else {
-				log.write('fragment["' + fragmentId + '"].get()');
 			}
 
 			return fragment;
@@ -402,7 +403,7 @@ define(['atomjs/lang', 'atomjs/dom', 'atomjs/log', 'atomjs/control', 'atomjs/url
 			return attributes;
 		},
 
-		applySettings: function (controller, element) {
+		applyControllerSettings: function (controller, element) {
 			var controllerDefaultSettings,
 				elementSettings,
 				settings;

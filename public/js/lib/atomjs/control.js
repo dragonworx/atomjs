@@ -1,19 +1,14 @@
 define(['jquery', 'atomjs/lang', 'atomjs/dom', 'atomjs/log'], function (jquery, lang, dom, log) {
 	"use strict";
 
-	var atom,
-		loader;
+	var loader;
 
 	function Control () {
 		this.__classes = [];
 		this.__id = 0;
 	}
 
-	Control._atom = function (_atom) {
-		atom = _atom;
-	};
-
-	Control._loader = function (_loader) {
+	Control.loader = function (_loader) {
 		loader = _loader;
 	};
 
@@ -69,11 +64,12 @@ define(['jquery', 'atomjs/lang', 'atomjs/dom', 'atomjs/log'], function (jquery, 
 		 * @see atom#emit
 		 */
 		emit: function () {
-			return atom.emit.apply(atom, arguments);
+			return require('atom').emit.apply(require('atom'), arguments);
 		},
 
 		onLoad: function (e, load_callback) {
-			var info = loader.getElementInfo(e.target),
+			var atom = require('atom'),
+				info = loader.getElementInfo(e.target),
 				control,
 				asyncTasks,
 				self = this;
@@ -87,11 +83,12 @@ define(['jquery', 'atomjs/lang', 'atomjs/dom', 'atomjs/log'], function (jquery, 
 				 */
 				function load_create_controllers (callback) {
 					if (info.isController) {
-						if (lang.hasKey(loader.cache.classes, info.className)) {
+						if (loader.isControllerCached(info.className)) {
 							// controller class has already been created and cached, return cached copy
 							info.element.attr('atom-control', info.controller.__id);
 							// callback with cached classes
-							callback(null, loader.cache.classes[info.className]);
+//							callback(null, loader.cache.classes[info.className]);
+							callback();
 						} else {
 							asyncTasks = [];
 
@@ -214,7 +211,8 @@ define(['jquery', 'atomjs/lang', 'atomjs/dom', 'atomjs/log'], function (jquery, 
 						styles: results[2],
 						templates: results[3]
 						},
-						settings = Control.prototype.settings;
+						settings = Control.prototype.settings,
+						fragmentElement;
 
 					if (info.isController && lang.isDefined(info.authentication)) {
 						// authentication was refused
@@ -240,15 +238,23 @@ define(['jquery', 'atomjs/lang', 'atomjs/dom', 'atomjs/log'], function (jquery, 
 							}
 							if (info.isTemplate) {
 								info.element.attr('atom-template', info.templates.join(' '));
+
 								// expand template html
 								info.element.html($.parseHTML(info.html.join('')));
+
+								// extract fragments
+								info.element.find(':atom-fragment').each(function(i, e) {
+									fragmentElement = $(e);
+									atom.fragment(fragmentElement.attr('atom-fragment'), fragmentElement);
+									fragmentElement.remove();
+								});
 							}
 							if (info.isStyle) {
 								info.element.attr('atom-style', info.styles.join(' '));
 							}
 
 							if (lang.isDefined(info.controller)) {
-								settings = loader.applySettings(info.controller, info.element);
+								settings = loader.applyControllerSettings(info.controller, info.element);
 							}
 
 							// mark as loaded

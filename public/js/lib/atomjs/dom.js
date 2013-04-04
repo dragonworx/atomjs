@@ -52,7 +52,7 @@ define(['jquery', 'atomjs/lang', 'atomjs/url', 'atomjs/log'], function ($, lang,
 
 	};
 
-	lang.each(['atom-id', 'atom-init', 'atom-load', 'atom-path', 'atom-route', 'atom-route-active', 'atom-route-default', 'atom-route-on', 'atom-route-end'], function (selector) {
+	lang.each(['atom-id', 'atom-init', 'atom-load', 'atom-path', 'atom-route', 'atom-route-active', 'atom-route-default', 'atom-route-on', 'atom-route-end', 'atom-fragment'], function (selector) {
 		jQuery.expr[':'][selector] = function (element, stackIndex, args) {
 			return args[3] ? element.getAttribute(selector) === args[3] : $(element).is('[' + selector + ']');
 		};

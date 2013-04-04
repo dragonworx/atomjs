@@ -22,8 +22,6 @@ define(['atomjs/lang', 'atomjs/dom', 'atomjs/url', 'atomjs/log', 'atomjs/loader'
 		init: function (init_callback) {
 			atom.settings.atomRoot = atom.settings.siteRoot + 'js/atomjs/';
 
-			Control._atom(atom);
-
 			// load global elements, then start router
 			lang.series([
 				/**
@@ -105,7 +103,84 @@ define(['atomjs/lang', 'atomjs/dom', 'atomjs/url', 'atomjs/log', 'atomjs/loader'
 			return element;
 		},
 
-		on: dom.on
+		on: dom.on,
+
+		setCookie: function setCookie(name, value, expireInDays) {
+			var exdate = new Date();
+
+			exdate.setDate(exdate.getDate() + expireInDays);
+			value = JSON.stringify(value) + (_.isUndefined(expireInDays)? "" : "; expires=" + exdate.toUTCString());
+			value = value.replace(/[=]/g, '##EQ##').replace(/;/g, '##SC##');
+			document.cookie = name + "=" + value;
+			log.write('cookie', name, value);
+		},
+
+		getCookie: function getCookie(name, defaultValue) {
+			var i,
+				x,
+				y,
+				ARRcookies = document.cookie.split(';');
+
+			for (i = 0; i < ARRcookies.length; i = i + 1) {
+				x = ARRcookies[i].substr(0, ARRcookies[i].indexOf('='));
+				y = ARRcookies[i].substr(ARRcookies[i].indexOf('=') + 1);
+				x = x.replace(/^\s+|\s+$/g, "");
+				if (x === name) {
+					y = y.replace(/##EQ##/g, '=').replace(/##SC##/g, ';');
+					return JSON.parse(y);
+				}
+			}
+			return defaultValue;
+		},
+
+		clearCookie: function (name) {
+			document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+		},
+
+		dataBindModelsByType: function (modelCollection, modelType, container) {
+			var modelUsages,
+				model,
+				fieldName,
+				i,
+				modelUsageIterator,
+				fieldIterator,
+				self = this;
+
+			// default to document.topLevelElement if no topLevelElement given
+			container = container || dom.body;
+
+			// define the iterator for finding usages of the model
+			modelUsageIterator = function (j, modelBindElement) {
+				dom.find(modelBindElement, '[atom-model-field]').each(fieldIterator);
+			};
+
+			// define the iterator for finding usages of model fields
+			fieldIterator = function (k, fieldBindElement) {
+				fieldBindElement = $(fieldBindElement);
+				fieldName = fieldBindElement.attr('atom-model-field');
+				if (lang.isUndefined(fieldBindElement[0].value)) {
+					fieldBindElement.text(model[fieldName]);
+				} else {
+					fieldBindElement.val(model[fieldName]);
+				}
+			};
+
+			// loop through each model, find it's usages in the dom scope, then find all fields within those usages and update their dom values
+			i = modelCollection.length;
+			while (i--) {
+				model = modelCollection[i];
+				if (!model.id) {
+					throw new Error('Model of type "' + modelType + '" requires id key: -NOT FOUND-');
+				}
+				modelUsages = dom.find(container, '[atom-model="' + modelType + '"][atom-model-id="' + model.id + '"]');
+				modelUsages.each(modelUsageIterator);
+			}
+		},
+
+		modelElement: function (fragmentId, modelId) {
+			var fragmentHTML = loader.fragment(fragmentId);
+			return $($.parseHTML(fragmentHTML.replace(/(atom-model\s*=\s*['"]?[a-z_0-9]+['"]?)/i, '$1 atom-model-id="' + modelId + '"')));
+		}
 	};
 
 	exports = {
@@ -114,13 +189,17 @@ define(['atomjs/lang', 'atomjs/dom', 'atomjs/url', 'atomjs/log', 'atomjs/loader'
 		init: atom.init,
 		emit: atom.emit,
 		data: atom.data,
-		loader: loader,
-		router: router,
+		fragment: loader.fragment,
 		log: log.write,
 		on: atom.on,
 		create: atom.create,
 		location: router.location,
-		navigate: router.navigate
+		navigate: router.navigate,
+		getCookie: atom.getCookie,
+		setCookie: atom.setCookie,
+		clearCookie: atom.clearCookie,
+		dataBindModelsByType: atom.dataBindModelsByType,
+		modelElement: atom.modelElement
 	};
 
 	window.atom = exports;

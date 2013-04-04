@@ -1,2 +1,14 @@
-<strong>Profile Content</strong>
-<p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
+<h4>Profile Content</h4>
+
+<!-- this fragment name is completely arbitrary, just a string key - this element will be removed and stored when the template is loaded -->
+<!-- notice the atom-model type name, and the atom-model-field usage within, see profile.js for code references -->
+<blockquote atom-fragment="models.profile" atom-model="profile" class="table-bordered">
+    <p><strong atom-model-field="name"></strong></p>
+    <p atom-model-field="description"></p>
+</blockquote>
+
+<!-- this is the container the models will go into - see profile.js -->
+<div id="profiles"></div>
+
+<small>Type to update profile descriptions...</small></br>
+<input type="text" />
