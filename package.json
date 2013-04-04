@@ -1,0 +1,38 @@
+{
+	"name": "atomjs",
+	"private": true,
+	"description": "Load on demand dynamic resource management front-end framework",
+	"version": "3.1.0",
+	"author": {
+		"name": "Ali Chamas",
+		"email": "dragonworxau@yahoo.com.au"
+	},
+	"contributors": [
+		{
+			"name": "Ali Chamas",
+			"email": "dragonworxau@yahoo.com.au"
+		},
+		{
+			"name": "Nik Butenko",
+			"email": "nikita.butenko@gmail.com"
+		}
+	],
+	"dependencies": {
+		"express": "*"
+	},
+	"keywords": [
+
+	],
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/dragonworx/atomjs.git"
+	},
+	"bugs": {
+		"url": "https://github.com/dragonworx/atomjs/issues",
+		"email": "dragonworxau@yahoo.com.au"
+	},
+	"engines": {
+		"node": "*"
+	},
+	"readmeFilename": "README.md"
+}
