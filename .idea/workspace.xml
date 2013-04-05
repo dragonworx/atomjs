@@ -2,21 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ba5f3b9b-d970-4930-bb26-13bda65584e0" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/com/example/contact/profile.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/lib/atomjs/atom.js" afterPath="$PROJECT_DIR$/public/js/lib/atomjs/atom.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/com/example/contact.html" afterPath="$PROJECT_DIR$/public/com/example/contact.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/lib/atomjs/control.js" afterPath="$PROJECT_DIR$/public/js/lib/atomjs/control.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/bootstrap.html" afterPath="$PROJECT_DIR$/public/bootstrap.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/lib/atomjs/dom.js" afterPath="$PROJECT_DIR$/public/js/lib/atomjs/dom.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/lib/atomjs/loader.js" afterPath="$PROJECT_DIR$/public/js/lib/atomjs/loader.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/com/example/login.js" afterPath="$PROJECT_DIR$/public/com/example/login.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/com/example/contact/profile.html" afterPath="$PROJECT_DIR$/public/com/example/contact/profile.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/com/example/contact/profile.js" afterPath="$PROJECT_DIR$/public/com/example/contact/profile.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="atomjs-bootstrap.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/router.js" changelist="ba5f3b9b-d970-4930-bb26-13bda65584e0" time="1364961059674" ignored="false" />
-    <file path="/atom.js" changelist="ba5f3b9b-d970-4930-bb26-13bda65584e0" time="1365077882678" ignored="false" />
+    <file path="/atom.js" changelist="ba5f3b9b-d970-4930-bb26-13bda65584e0" time="1365131576571" ignored="false" />
     <file path="/url.js" changelist="ba5f3b9b-d970-4930-bb26-13bda65584e0" time="1364365435746" ignored="false" />
     <file path="/bootstrap.js" changelist="ba5f3b9b-d970-4930-bb26-13bda65584e0" time="1364957781411" ignored="false" />
     <file path="/a.dummy" changelist="ba5f3b9b-d970-4930-bb26-13bda65584e0" time="1364369822963" ignored="false" />
@@ -24,7 +20,7 @@
     <file path="/test.txt" changelist="ba5f3b9b-d970-4930-bb26-13bda65584e0" time="1363233298127" ignored="false" />
     <file path="/settings.json" changelist="ba5f3b9b-d970-4930-bb26-13bda65584e0" time="1363231262725" ignored="false" />
     <file path="/app.js" changelist="ba5f3b9b-d970-4930-bb26-13bda65584e0" time="1364252391472" ignored="false" />
-    <file path="/bootstrap.html" changelist="ba5f3b9b-d970-4930-bb26-13bda65584e0" time="1364962244707" ignored="false" />
+    <file path="/bootstrap.html" changelist="ba5f3b9b-d970-4930-bb26-13bda65584e0" time="1365131694070" ignored="false" />
     <file path="/style.css" changelist="ba5f3b9b-d970-4930-bb26-13bda65584e0" time="1363769829513" ignored="false" />
     <file path="/test" changelist="ba5f3b9b-d970-4930-bb26-13bda65584e0" time="1363237033410" ignored="false" />
     <file path="/example-bootstrap.html" changelist="ba5f3b9b-d970-4930-bb26-13bda65584e0" time="1364201816918" ignored="false" />
@@ -38,7 +34,7 @@
     <file path="/jquery.js" changelist="ba5f3b9b-d970-4930-bb26-13bda65584e0" time="1363526778232" ignored="false" />
     <file path="/concat.js" changelist="ba5f3b9b-d970-4930-bb26-13bda65584e0" time="1363514215722" ignored="false" />
     <file path="/concat.json" changelist="ba5f3b9b-d970-4930-bb26-13bda65584e0" time="1363514242594" ignored="false" />
-    <file path="/dom.js" changelist="ba5f3b9b-d970-4930-bb26-13bda65584e0" time="1365073117805" ignored="false" />
+    <file path="/dom.js" changelist="ba5f3b9b-d970-4930-bb26-13bda65584e0" time="1365130469128" ignored="false" />
     <file path="/control.js" changelist="ba5f3b9b-d970-4930-bb26-13bda65584e0" time="1365075117473" ignored="false" />
     <file path="/template.html" changelist="ba5f3b9b-d970-4930-bb26-13bda65584e0" time="1363692598845" ignored="false" />
     <file path="/controllerBase.js" changelist="ba5f3b9b-d970-4930-bb26-13bda65584e0" time="1363673234579" ignored="false" />
@@ -65,14 +61,14 @@
     <file path="/routelink.js" changelist="ba5f3b9b-d970-4930-bb26-13bda65584e0" time="1364214032193" ignored="false" />
     <file path="/contact.html" changelist="ba5f3b9b-d970-4930-bb26-13bda65584e0" time="1365077017141" ignored="false" />
     <file path="/contact.js" changelist="ba5f3b9b-d970-4930-bb26-13bda65584e0" time="1364249781195" ignored="false" />
-    <file path="/profile.html" changelist="ba5f3b9b-d970-4930-bb26-13bda65584e0" time="1365079111094" ignored="false" />
+    <file path="/profile.html" changelist="ba5f3b9b-d970-4930-bb26-13bda65584e0" time="1365131448685" ignored="false" />
     <file path="/settings.html" changelist="ba5f3b9b-d970-4930-bb26-13bda65584e0" time="1364252158701" ignored="false" />
     <file path="/messages.html" changelist="ba5f3b9b-d970-4930-bb26-13bda65584e0" time="1364252139075" ignored="false" />
     <file path="/loadspinner.js" changelist="ba5f3b9b-d970-4930-bb26-13bda65584e0" time="1364961368181" ignored="false" />
     <file path="/404.html" changelist="ba5f3b9b-d970-4930-bb26-13bda65584e0" time="1364364495962" ignored="false" />
     <file path="/404.js" changelist="ba5f3b9b-d970-4930-bb26-13bda65584e0" time="1364365139222" ignored="false" />
-    <file path="/Dummy.txt" changelist="ba5f3b9b-d970-4930-bb26-13bda65584e0" time="1365072458693" ignored="false" />
-    <file path="/profile.js" changelist="ba5f3b9b-d970-4930-bb26-13bda65584e0" time="1365078876619" ignored="false" />
+    <file path="/Dummy.txt" changelist="ba5f3b9b-d970-4930-bb26-13bda65584e0" time="1365125878066" ignored="false" />
+    <file path="/profile.js" changelist="ba5f3b9b-d970-4930-bb26-13bda65584e0" time="1365131490303" ignored="false" />
     <file path="/profile.css" changelist="ba5f3b9b-d970-4930-bb26-13bda65584e0" time="1365078221608" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -93,19 +89,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="bootstrap.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="bootstrap.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/bootstrap.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="98" column="4" selection-start="4448" selection-end="4448" vertical-scroll-proportion="-0.625">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="atom.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/js/lib/atomjs/atom.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="160" column="56" selection-start="4688" selection-end="4688" vertical-scroll-proportion="0.0">
+            <state line="74" column="40" selection-start="2895" selection-end="2895" vertical-scroll-proportion="0.42949906">
               <folding />
             </state>
           </provider>
@@ -132,7 +119,7 @@
       <file leaf-file-name="dom.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/lib/atomjs/dom.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="54" column="171" selection-start="2447" selection-end="2447" vertical-scroll-proportion="0.0">
+            <state line="140" column="39" selection-start="4637" selection-end="4637" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -156,19 +143,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="profile.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/com/example/contact/profile.html">
+      <file leaf-file-name="atom.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/js/lib/atomjs/atom.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="46" selection-start="661" selection-end="661" vertical-scroll-proportion="-8.125">
+            <state line="148" column="27" selection-start="3930" selection-end="3930" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="profile.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="profile.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/com/example/contact/profile.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="163" selection-start="197" selection-end="197" vertical-scroll-proportion="-1.25">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="profile.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/com/example/contact/profile.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="56" column="147" selection-start="1815" selection-end="1815" vertical-scroll-proportion="0.76363635">
+            <state line="20" column="82" selection-start="570" selection-end="570" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -205,18 +201,18 @@
         <option value="$PROJECT_DIR$/public/js/lib/atomjs/router.js" />
         <option value="$PROJECT_DIR$/public/com/atom/ui/loadspinner.js" />
         <option value="$PROJECT_DIR$/public/js/lib/atomjs/bootstrap.js" />
-        <option value="$PROJECT_DIR$/public/bootstrap.html" />
         <option value="$PROJECT_DIR$/README.txt" />
         <option value="$PROJECT_DIR$/public/js/lib/atomjs/data.js" />
-        <option value="$PROJECT_DIR$/public/js/lib/atomjs/dom.js" />
         <option value="$PROJECT_DIR$/public/js/lib/atomjs/loader.js" />
         <option value="$PROJECT_DIR$/public/js/lib/atomjs/control.js" />
         <option value="$PROJECT_DIR$/public/com/example/login.js" />
-        <option value="$PROJECT_DIR$/public/js/lib/atomjs/atom.js" />
         <option value="$PROJECT_DIR$/public/com/example/contact.html" />
         <option value="$PROJECT_DIR$/public/com/example/contact/profile.css" />
+        <option value="$PROJECT_DIR$/public/js/lib/atomjs/dom.js" />
         <option value="$PROJECT_DIR$/public/com/example/contact/profile.html" />
+        <option value="$PROJECT_DIR$/public/js/lib/atomjs/atom.js" />
         <option value="$PROJECT_DIR$/public/com/example/contact/profile.js" />
+        <option value="$PROJECT_DIR$/public/bootstrap.html" />
       </list>
     </option>
   </component>
@@ -437,8 +433,8 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/public/sub/site/com/atom" />
     <property name="FullScreen" value="true" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="PublishConfig">
     <servers>
@@ -529,13 +525,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1200" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15154749" sideWeight="0.46025878" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18409818" sideWeight="0.6719858" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18356457" sideWeight="0.6719858" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
@@ -613,6 +609,13 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/public/js/lib/atomjs/router.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="73" selection-start="713" selection-end="713" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/com/example/admin.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="30" column="31" selection-start="713" selection-end="713" vertical-scroll-proportion="0.0">
@@ -641,23 +644,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/bootstrap.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="98" column="4" selection-start="4448" selection-end="4448" vertical-scroll-proportion="-0.625">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/LICENSE.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/com/example/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="31" selection-start="305" selection-end="305" vertical-scroll-proportion="0.16363636" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/com/example/contact.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="30" selection-start="692" selection-end="692" vertical-scroll-proportion="-5.625" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/lib/atomjs/dom.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="140" column="39" selection-start="4637" selection-end="4637" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -669,13 +678,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/com/example/login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="31" selection-start="305" selection-end="305" vertical-scroll-proportion="0.16363636">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/lib/atomjs/loader.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="36" column="44" selection-start="752" selection-end="752" vertical-scroll-proportion="0.0">
@@ -683,37 +685,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/lib/atomjs/dom.js">
+    <entry file="file://$PROJECT_DIR$/public/com/example/contact/profile.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="171" selection-start="2447" selection-end="2447" vertical-scroll-proportion="0.0">
+        <state line="2" column="163" selection-start="197" selection-end="197" vertical-scroll-proportion="-1.25">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/lib/atomjs/atom.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="160" column="56" selection-start="4688" selection-end="4688" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/com/example/contact.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="30" selection-start="692" selection-end="692" vertical-scroll-proportion="-5.625">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/com/example/contact/profile.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="46" selection-start="661" selection-end="661" vertical-scroll-proportion="-8.125">
+        <state line="148" column="27" selection-start="3930" selection-end="3930" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/com/example/contact/profile.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="147" selection-start="1815" selection-end="1815" vertical-scroll-proportion="0.76363635">
+        <state line="20" column="82" selection-start="570" selection-end="570" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/bootstrap.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="74" column="40" selection-start="2895" selection-end="2895" vertical-scroll-proportion="0.42949906">
           <folding />
         </state>
       </provider>

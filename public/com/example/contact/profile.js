@@ -1,7 +1,7 @@
 define(['atom', 'atomjs/lang'], function (atom, lang) {
 	"use strict";
 
-	var models;
+	var profileModels;
 
 	return {
 		bind: function () {
@@ -10,52 +10,74 @@ define(['atom', 'atomjs/lang'], function (atom, lang) {
 		},
 
 		onInit: function (e, callback) {
-			var modelElement,
-				container = e.target.find('#profiles');
+			var profilesContainer = $('#profiles-container'),
+				profileOptions;
 
 			// some example models - would come from a server-side JSON call in real life.
-			models = [
+			profileModels = [
 				{
 					id: 1,
-					name: 'Profile 1',
-					description: 'this is profile 1'
+					name: 'Profile 1 Name',
+					description: 'this is profile 1 description (it has extra css class values)'
 				},
 				{
 					id: 2,
-					name: 'Profile 2',
-					description: 'this is profile 2'
+					name: 'Profile 2 Name',
+					description: 'this is profile 2 description'
 				},
 				{
 					id: 3,
-					name: 'Profile 3',
-					description: 'this is profile 3'
+					name: 'Profile 3 Name',
+					description: 'this is profile 3 description'
 				}
 			];
 
 			// first create a new element from the 'models.profile' fragment, based on each model and add to container
-			lang.each(models, function (profile) {
-				modelElement = atom.modelElement('models.profile', profile.id);
-				container.append(modelElement);
+			lang.each(profileModels, function (profile, index) {
+				// create options for new element
+				profileOptions = {
+					fragment: 'com.example.fragments.profile',
+					model: {
+						id: profile.id,
+						type: 'com.example.models.profile'
+					},
+					container: profilesContainer
+				};
+
+				// add some example classes for the first index
+				if (index === 0) {
+					profileOptions.classes = 'label label-info';
+				}
+
+				// create new element, will be added to container through options
+				atom.create(profileOptions);
 			});
 
-			// now bind models to the elements on the page which use them (this same call is used when updating models too)
-			atom.dataBindModelsByType(models, 'profile');
+			// data bind all models data required by elements found in container
+			atom.dataBind({
+				models: profileModels,
+				type: 'com.example.models.profile',
+				container: profilesContainer
+			});
 
 			// don't forget to callback from init!
 			callback();
 		},
 
 		onUpdateProfiles: function (e) {
-			// change value in persistent models, or even fetch models again,
-			// as long as the id of the model corresponds to the model element with the same id on the page.
-			lang.each(models, function (profile) {
+			var profilesContainer = $('#profiles-container');
+
+			// modify profiles
+			lang.each(profileModels, function (profile) {
 				profile.description = profile.name + ' = ' + e.target.val();
 			});
 
-			// now re-bind models to the elements on the page which use them.
-			// you can remove model elements from the page and re-insert without worrying about binding.
-			// when it's time to update, just pass the list of models and the type name, the elements on the page which match both will be updated.
-			atom.dataBindModelsByType(models, 'profile');
+			// re-data bind all models data required by elements found in container
+			atom.dataBind({
+				models: profileModels,
+				type: 'com.example.models.profile',
+				container: profilesContainer
+			});
 		}
 	};
 });

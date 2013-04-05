@@ -137,6 +137,10 @@ define(['jquery', 'atomjs/lang', 'atomjs/url', 'atomjs/log'], function ($, lang,
 		return element.toJSON();
 	};
 
+	dom.parse = function (html) {
+		return dom($.parseHTML(html)[0]);
+	};
+
 	dom.body = $(document.body);
 
 	return dom;

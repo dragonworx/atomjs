@@ -81,26 +81,103 @@ define(['atomjs/lang', 'atomjs/dom', 'atomjs/url', 'atomjs/log', 'atomjs/loader'
 			var html,
 				element;
 
-			html = '<' + (options.type || 'div');
-			if (!(options.template || options.controller || options.style)) {
-				throw new Error('No template, controller or style specified to create');
+			// create initial html
+			if (options.fragment) {
+				html = loader.fragment(options.fragment);
+			} else {
+				html = options.type || 'div';
+				html = '<' + html + '></' + html + '>';
 			}
-			html += options.template ? ' atom-template="' + options.template + '"' : '';
-			html += options.controller ? ' atom-controller="' + options.controller + '"' : '';
-			html += options.style ? ' atom-style="' + options.style + '"' : '';
+
+			// create element
+			element = dom.parse(html);
+
+			// set attributes
+			if (options.template) {
+				element.attr('atom-template', options.template);
+			}
+			if (options.controller) {
+				element.attr('atom-controller', options.controller);
+			}
+			if (options.style) {
+				element.attr('atom-style', options.style);
+			}
+			if (options.model && options.model.id) {
+				element.attr('atom-model-id', options.model.id);
+			}
+			if (options.model && options.model.type) {
+				element.attr('atom-model', options.model.type);
+			}
+			if (options.model && options.model.key) {
+				element.attr('atom-model-key', options.model.key);
+			}
 			if (options.settings) {
 				lang.each(options.settings, function (value, key) {
-					html += ' atom-set-' + key + '="' + value + '"';
+					element.attr('atom-set-' + key, value);
 				});
 			}
-			html += '>';
-
-			element = $.parseHTML(html);
-			if (options.container) {
-				$(options.container).append(element);
+			if (options.load) {
+				element.attr('atom-load', options.load);
 			}
-			loader.load(element, options.callback);
+			if (options.classes) {
+				lang.each(options.classes.split(' '), function (className) {
+					element.addClass(className);
+				});
+			}
+			if (options.css) {
+				element.css(options.css);
+			}
+
+			// add to container and load if required
+			if (options.container && options.mode !== 'insert') {
+				dom(options.container).append(element);
+			}
+			if (options.container && options.mode === 'insert') {
+				dom(options.container).insert(element);
+			}
+			if (options.load !== false) {
+				loader.load(element, options.onload);
+			}
 			return element;
+		},
+
+		dataBind: function (options) {
+			var models = options.models || [],
+				modelType = options.type || '',
+				domScope = options.container || dom.body,
+				modelUsages,
+				model,
+				fieldName,
+				i,
+				modelUsageIterator,
+				fieldIterator;
+
+			// define the iterator for finding usages of the model
+			modelUsageIterator = function (j, modelBindElement) {
+				dom.find(modelBindElement, '[atom-model-key]').each(fieldIterator);
+			};
+
+			// define the iterator for finding usages of model fields
+			fieldIterator = function (k, fieldBindElement) {
+				fieldBindElement = $(fieldBindElement);
+				fieldName = fieldBindElement.attr('atom-model-key');
+				if (lang.isUndefined(fieldBindElement[0].value)) {
+					fieldBindElement.text(model[fieldName]);
+				} else {
+					fieldBindElement.val(model[fieldName]);
+				}
+			};
+
+			// loop through each model, find it's usages in the dom scope, then find all fields within those usages and update their dom values
+			i = models.length;
+			while (i--) {
+				model = models[i];
+				if (!model.id) {
+					throw new Error('Model of type "' + modelType + '" requires id key: -NOT FOUND-');
+				}
+				modelUsages = dom.find(domScope, '[atom-model="' + modelType + '"][atom-model-id="' + model.id + '"]');
+				modelUsages.each(modelUsageIterator);
+			}
 		},
 
 		on: dom.on,
@@ -135,51 +212,6 @@ define(['atomjs/lang', 'atomjs/dom', 'atomjs/url', 'atomjs/log', 'atomjs/loader'
 
 		clearCookie: function (name) {
 			document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-		},
-
-		dataBindModelsByType: function (modelCollection, modelType, container) {
-			var modelUsages,
-				model,
-				fieldName,
-				i,
-				modelUsageIterator,
-				fieldIterator,
-				self = this;
-
-			// default to document.topLevelElement if no topLevelElement given
-			container = container || dom.body;
-
-			// define the iterator for finding usages of the model
-			modelUsageIterator = function (j, modelBindElement) {
-				dom.find(modelBindElement, '[atom-model-field]').each(fieldIterator);
-			};
-
-			// define the iterator for finding usages of model fields
-			fieldIterator = function (k, fieldBindElement) {
-				fieldBindElement = $(fieldBindElement);
-				fieldName = fieldBindElement.attr('atom-model-field');
-				if (lang.isUndefined(fieldBindElement[0].value)) {
-					fieldBindElement.text(model[fieldName]);
-				} else {
-					fieldBindElement.val(model[fieldName]);
-				}
-			};
-
-			// loop through each model, find it's usages in the dom scope, then find all fields within those usages and update their dom values
-			i = modelCollection.length;
-			while (i--) {
-				model = modelCollection[i];
-				if (!model.id) {
-					throw new Error('Model of type "' + modelType + '" requires id key: -NOT FOUND-');
-				}
-				modelUsages = dom.find(container, '[atom-model="' + modelType + '"][atom-model-id="' + model.id + '"]');
-				modelUsages.each(modelUsageIterator);
-			}
-		},
-
-		modelElement: function (fragmentId, modelId) {
-			var fragmentHTML = loader.fragment(fragmentId);
-			return $($.parseHTML(fragmentHTML.replace(/(atom-model\s*=\s*['"]?[a-z_0-9]+['"]?)/i, '$1 atom-model-id="' + modelId + '"')));
 		}
 	};
 
@@ -193,13 +225,12 @@ define(['atomjs/lang', 'atomjs/dom', 'atomjs/url', 'atomjs/log', 'atomjs/loader'
 		log: log.write,
 		on: atom.on,
 		create: atom.create,
+		dataBind: atom.dataBind,
 		location: router.location,
 		navigate: router.navigate,
 		getCookie: atom.getCookie,
 		setCookie: atom.setCookie,
-		clearCookie: atom.clearCookie,
-		dataBindModelsByType: atom.dataBindModelsByType,
-		modelElement: atom.modelElement
+		clearCookie: atom.clearCookie
 	};
 
 	window.atom = exports;
