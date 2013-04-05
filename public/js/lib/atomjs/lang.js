@@ -224,6 +224,10 @@ define(['atomjs/lang'], function () {
 				};
 
 			step();
+		},
+
+		defer: function (func, ms) {
+			return setTimeout(func, ms || 0);
 		}
 	};
 
