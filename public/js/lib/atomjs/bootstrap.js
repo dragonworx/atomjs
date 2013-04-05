@@ -41,7 +41,7 @@
 	// fake flag to grant access to admin, would be replaced with real server-side call
 	window.allowAdmin = false;
 
-	require([ 'atom', 'atomjs/lang', 'atomjs/log', 'atomjs/dom' ], function(atom, lang, log, dom) {
+	require([ 'atom'], function(atom) {
 		atom
 			.on(':404', null, function (e, navigationInfo) {
 				// catch 404 and show alert
@@ -56,7 +56,7 @@
 				});
 			});
 
-		atom.init(function(results) {
+		atom.init(function() {
 			log.write('ready', 'init!');
 		});
 	});

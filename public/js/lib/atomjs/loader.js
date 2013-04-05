@@ -35,9 +35,11 @@ define(['atomjs/lang', 'atomjs/dom', 'atomjs/log', 'atomjs/control', 'atomjs/url
 			TemplateController.__bind();
 
 			// load document body by default
-			loader.load(dom.body, function (err, results) {
-				log.write('complete', 'atom.loader.init');
-				init_callback(null, results);
+			dom.ready(function () {
+				loader.load(dom.body, function (err, results) {
+					log.write('complete', 'atom.loader.init');
+					init_callback(null, results);
+				});
 			});
 		},
 

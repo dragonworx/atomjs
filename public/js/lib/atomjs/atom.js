@@ -1,4 +1,4 @@
-define(['atomjs/lang', 'atomjs/dom', 'atomjs/url', 'atomjs/log', 'atomjs/loader', 'atomjs/router', 'atomjs/control'], function (lang, dom, Url, log, loader, router, Control) {
+define(['atomjs/lang', 'atomjs/dom', 'atomjs/url', 'atomjs/log', 'atomjs/loader', 'atomjs/router'], function (lang, dom, Url, log, loader, router) {
 	"use strict";
 
 	var atom,
@@ -12,7 +12,6 @@ define(['atomjs/lang', 'atomjs/dom', 'atomjs/url', 'atomjs/log', 'atomjs/loader'
 		settings: {
 			// use requirejs config baseUrl as site root by accessing private requirejs context (may change in future but no public api available at present)
 			siteRoot: requirejs.s.contexts._.config.baseUrl.replace(/\/$/, '') + '/',
-			atomRoot: 'js/atomjs/',
 			logEnabled: true,
 			log: null,
 			logLimit: 1000,
@@ -20,8 +19,6 @@ define(['atomjs/lang', 'atomjs/dom', 'atomjs/url', 'atomjs/log', 'atomjs/loader'
 		},
 
 		init: function (init_callback) {
-			atom.settings.atomRoot = atom.settings.siteRoot + 'js/atomjs/';
-
 			// load global elements, then start router
 			lang.series([
 				/**

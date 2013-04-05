@@ -133,6 +133,8 @@ define(['jquery', 'atomjs/lang', 'atomjs/url', 'atomjs/log'], function ($, lang,
 		return dom;
 	};
 
+	dom.ready = $(document).ready;
+
 	dom.toString = function (element) {
 		return element.toJSON();
 	};
