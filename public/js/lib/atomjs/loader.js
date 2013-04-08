@@ -378,7 +378,7 @@ define(['atomjs/lang', 'atomjs/dom', 'atomjs/log', 'atomjs/control', 'atomjs/url
 			var fragment = loader.fragments[fragmentId];
 
 			if (element) {
-				loader.fragments[fragmentId] = dom.outerHTML(element).replace(/>\s+</g, '><');
+				loader.fragments[fragmentId] = loader.xmlToHtml(element).replace(/>\s+</g, '><');
 				log.write('fragment', fragmentId);
 				return loader.fragments[fragmentId];
 			}
@@ -467,10 +467,19 @@ define(['atomjs/lang', 'atomjs/dom', 'atomjs/log', 'atomjs/control', 'atomjs/url
 			}
 			validateSettingsRecursive(settings);
 			return result;
+		},
+		xmlToHtml: function (xml) {
+			//IE
+			if (window.ActiveXObject){
+				return xml.xml;
+			}
+			// code for Mozilla, Firefox, Opera, etc.
+			return (new XMLSerializer()).serializeToString(xml[0]);
 		}
 	};
 
 	exports = {
+		fragments: loader.fragments,
 		init: loader.init,
 		load: loader.load,
 		getElementPath: loader.getElementPath,
@@ -482,7 +491,8 @@ define(['atomjs/lang', 'atomjs/dom', 'atomjs/log', 'atomjs/control', 'atomjs/url
 		readElementSettings: loader.readElementSettings,
 		isControllerCached: loader.isControllerCached,
 		isTemplateCached: loader.isTemplateCached,
-		isStyleCached: loader.isStyleCached
+		isStyleCached: loader.isStyleCached,
+		xmlToHtml: loader.xmlToHtml
 	};
 
 	return exports;

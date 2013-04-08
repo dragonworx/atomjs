@@ -1,14 +1,18 @@
 <h4>Profile Content Heading</h4>
 
 <!-- create a fragment which has databinding information, when the fragments are created (atom.create) the databinding must be called to refresh dom (atom.dataBind) -->
-<blockquote atom-fragment="com.example.fragments.profile" atom-model="com.example.models.profile" class="table-bordered">
-    <em>Profile Heading</em>
-    <p><strong atom-model-key="name"></strong></p>
-    <p atom-model-key="description"></p>
-</blockquote>
+<tr atom-fragment="com.example.fragments.profile" atom-model="com.example.models.profile">
+    <td atom-model-key="name"></td>
+    <td atom-model-key="description"></td>
+    <td></td>
+    <td class="center"></td>
+    <td class="center"></td>
+</tr>
+
+
 
 <!-- this is the container the models will go into - see profile.js -->
 <div id="profiles-container"></div>
 
-<small>Type to update profile descriptions...</small></br>
+<small>Type to update profile descriptions...</small><br/>
 <input type="text" />

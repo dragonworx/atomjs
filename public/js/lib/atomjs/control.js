@@ -212,7 +212,9 @@ define(['jquery', 'atomjs/lang', 'atomjs/dom', 'atomjs/log'], function (jquery, 
 						templates: results[3]
 						},
 						settings = Control.prototype.settings,
-						fragmentElement;
+						fragmentElement,
+						xml,
+						html;
 
 					if (info.isController && lang.isDefined(info.authentication)) {
 						// authentication was refused
@@ -240,14 +242,16 @@ define(['jquery', 'atomjs/lang', 'atomjs/dom', 'atomjs/log'], function (jquery, 
 								info.element.attr('atom-template', info.templates.join(' '));
 
 								// expand template html
-								info.element.html($.parseHTML(info.html.join('')));
+								xml = $($.parseXML('<div>' + info.html.join('') + '</div>'));
 
 								// extract fragments
-								info.element.find(':atom-fragment').each(function(i, e) {
+								xml.find(':atom-fragment').each(function(i, e) {
 									fragmentElement = $(e);
 									atom.fragment(fragmentElement.attr('atom-fragment'), fragmentElement);
 									fragmentElement.remove();
 								});
+
+								info.element.html(info.html.join(''));
 							}
 							if (info.isStyle) {
 								info.element.attr('atom-style', info.styles.join(' '));
