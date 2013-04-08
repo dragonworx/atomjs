@@ -251,7 +251,8 @@ define(['jquery', 'atomjs/lang', 'atomjs/dom', 'atomjs/log'], function (jquery, 
 									fragmentElement.remove();
 								});
 
-								info.element.html(info.html.join(''));
+//								info.element.html(info.html.join(''));
+								info.element.html(loader.xmlToHtml(xml));
 							}
 							if (info.isStyle) {
 								info.element.attr('atom-style', info.styles.join(' '));
