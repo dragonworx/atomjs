@@ -309,12 +309,13 @@ define(['jquery', 'atomjs/lang', 'atomjs/dom', 'atomjs/log'], function (jquery, 
 
 		onNavigate: function (e, callback) {
 			if (e.target.is(':atom-control')) {
-				// if this is a control, load then callback
+				// if this is a control then load it
 				this.onLoad(e, function (loadData) {
+					// now that this element is loaded, call loader.load on everything inside it
 					require('atom').load(e.target, function () {
+						// now callback to the router
 						callback(loadData);
 					});
-//					callback(loadData);
 				});
 			} else {
 				// normal element, show it
