@@ -5,7 +5,7 @@ define(['atomjs/lang', 'atomjs/dom', 'atomjs/url', 'atomjs/log', 'atomjs/loader'
 		exports;
 
 	atom = {
-		version: '3.1.0',
+		version: '3.2.0',
 
 		cache: {},
 
@@ -221,6 +221,7 @@ define(['atomjs/lang', 'atomjs/dom', 'atomjs/url', 'atomjs/log', 'atomjs/loader'
 		fragments: loader.fragments,
 		fragment: loader.fragment,
 		xmlToHtml: loader.xmlToHtml,
+		load: loader.load,
 		log: log.write,
 		on: atom.on,
 		create: atom.create,

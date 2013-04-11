@@ -242,17 +242,22 @@ define(['jquery', 'atomjs/lang', 'atomjs/dom', 'atomjs/log'], function (jquery, 
 								info.element.attr('atom-template', info.templates.join(' '));
 
 								// expand template html
-								xml = $($.parseXML('<div>' + info.html.join('') + '</div>'));
+								html = info.html.join('');
+								if (html.match(/atom-fragment=/)) {
+									xml = $($.parseXML('<div>' + html + '</div>'));
 
-								// extract fragments
-								xml.find(':atom-fragment').each(function(i, e) {
-									fragmentElement = $(e);
-									atom.fragment(fragmentElement.attr('atom-fragment'), fragmentElement);
-									fragmentElement.remove();
-								});
+									// extract fragments
+									xml.find(':atom-fragment').each(function(i, e) {
+										fragmentElement = $(e);
+										atom.fragment(fragmentElement.attr('atom-fragment'), fragmentElement);
+										fragmentElement.remove();
+									});
 
-//								info.element.html(info.html.join(''));
-								info.element.html(loader.xmlToHtml(xml));
+									info.element.html(loader.xmlToHtml(xml));
+								} else {
+									// skip searching for fragments
+									info.element.html(html);
+								}
 							}
 							if (info.isStyle) {
 								info.element.attr('atom-style', info.styles.join(' '));
@@ -306,7 +311,10 @@ define(['jquery', 'atomjs/lang', 'atomjs/dom', 'atomjs/log'], function (jquery, 
 			if (e.target.is(':atom-control')) {
 				// if this is a control, load then callback
 				this.onLoad(e, function (loadData) {
-					callback(loadData);
+					require('atom').load(e.target, function () {
+						callback(loadData);
+					});
+//					callback(loadData);
 				});
 			} else {
 				// normal element, show it

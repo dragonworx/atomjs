@@ -15,6 +15,7 @@ define(['atomjs/lang', 'atomjs/dom', 'atomjs/log', 'atomjs/control', 'atomjs/url
 		cache: {
 			templates: {},
 			controllers: {},
+			styles: {},
 			classes: {}
 		},
 
@@ -469,12 +470,16 @@ define(['atomjs/lang', 'atomjs/dom', 'atomjs/log', 'atomjs/control', 'atomjs/url
 			return result;
 		},
 		xmlToHtml: function (xml) {
-			//IE
-			if (window.ActiveXObject){
-				return xml.xml;
+			try {
+				//IE
+				if (window.ActiveXObject){
+					return xml.xml;
+				}
+				// code for Mozilla, Firefox, Opera, etc.
+				return (new XMLSerializer()).serializeToString(xml[0]);
+			} catch (e) {
+				throw new Error("Cannot convert xml to html: " + e.toString());
 			}
-			// code for Mozilla, Firefox, Opera, etc.
-			return (new XMLSerializer()).serializeToString(xml[0]);
 		}
 	};
 
