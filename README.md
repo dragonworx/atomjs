@@ -1,6 +1,6 @@
 # atomjs
 
-#### Load on demand front-end framework for SPA (single page web) applications.
+#### Front-end framework for SPA applications.
 
 atomjs is a light-weight, compact front-end library built on <a href="http://requirejs.org/">requirejs<a/>.
 
@@ -18,14 +18,14 @@ atomjs is perfect for hybrid mobile development where performance and resource m
 
 Use the simple Nodejs server/app.js to run locally for testing or development purposes.
 
-#### Run as root site
+#### Run as root site.
 To run as root site, cd to atomjs-3.0.0 folder level:
 *    node server/app -b bootstrap.html -p 3000
 * Hit http://localhost:3000 in Chrome 
 
 Tests at http://localhost:3000/js/lib/atomjs/tests/
 
-#### Run as sub site
+#### Run as sub site.
 To run as sub site, cd to atomjs-3.0.0 folder level:
 *   cd public
 *   mkdir sub
@@ -38,14 +38,15 @@ To run as sub site, cd to atomjs-3.0.0 folder level:
 
 Tests at http://localhost:3000/sub/site/js/lib/atomjs/tests/.
 
-#### Example application info
+#### Example application included.
 * All content/components for example site is under atomjs-3.0.0/public/com/example
 * The entry point for the app is under atomjs-3.0.0/js/atomjs/bootstrap.js
+* com/example/admin.js contains an example of providing authentication by controllers to determine whether routes can be opened
 
 #### CSS urls
 Normally urls in stylesheets are relative to the stylesheet, however if they are loaded by atom as a template or controller style, make them relative to the bootstrap file location (with no leading slashes).
 
-#### API and development guide
+#### API and development guide.
 * To require the main atom functionality, just define 'atom' as one of the dependencies of your module.
 * Leave all src and href paths as relative to the bootstrap file, the server app will find and replace any relative urls in the initial bootstrap.html and all subsequent templates to enable you to move to sub site (It will ignore absolute paths).
 * You can specify a list of (space separated) controllers, templates, or styles on any elements.
