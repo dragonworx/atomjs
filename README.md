@@ -1,6 +1,20 @@
 # atomjs
 
-## Load on demand front-end framework for SPA (single page web) applications.
+#### Load on demand front-end framework for SPA (single page web) applications.
+
+atomjs is a light-weight, compact front-end library built on <a href="http://requirejs.org/">requirejs<a/>.
+
+Using a simple AMD pattern, and MVC-style separation of markup, style, and code, atomjs enables you to break your site down into small peices and only load resources when they are actually required. Templates and style can be separated and combined in custom combinations, and AMD controllers can be used to provide logic and reusable components.
+
+atomjs uses event delegation and only one instance of any controller is every created, reducing memory footprint and memory leaks. Controllers can still provide per-element instance logic, though the instantiation and event binding only happens once, which saves CPU and memory and improves performance.
+
+atomjs uses a simple mapping of component id to file system location, which makes understanding implementations easier and intuitive.
+
+The core gzipped library is small (~8k) and currently only relies on jQuery and requirejs as dependancies.
+
+atomjs provides a solution to loading content on demand. You are free to use any other libraries to build that content, atomjs does not impose and restrictions in that sense.
+
+atomjs is perfect for hybrid mobile development where performance and resource modularisation is important.
 
 Use the simple Nodejs server/app.js to run locally for testing or development purposes.
 
